@@ -759,6 +759,10 @@ h3 > .fa {
 	}
 
 }
+/*Blog Admin Options*/
+.admin-options {
+    text-align: center;
+}
 
 /*- BX Slaider reset -*/
 .bxslider {

@@ -80,3 +80,8 @@ c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Micr
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\obj\Debug\BlogDS.csprojResolveAssemblyReference.cache
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\obj\Debug\BlogDS.dll
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\obj\Debug\BlogDS.pdb
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\SendGrid.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\SendGrid.SmtpApi.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\SendGridMail.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\System.Net.Http.Formatting.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\System.Net.Http.Formatting.xml

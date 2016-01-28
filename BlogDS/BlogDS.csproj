@@ -223,6 +223,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodeFirst\BlogPost.cs" />
     <Compile Include="Models\CodeFirst\Comment.cs" />
+    <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\StringUtilities.cs" />
@@ -247,6 +248,7 @@
     <Content Include="assets\css\simpletextrotator.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\images\DS-logo %281%29.png" />
+    <Content Include="assets\images\ds1.jpg" />
     <Content Include="assets\images\IMG_9788.JPG" />
     <Content Include="assets\images\Ocean.jpg" />
     <Content Include="Content\animate.css" />
@@ -302,6 +304,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="index.html" />
+    <Content Include="index3.html" />
     <Content Include="index2.html" />
     <Content Include="post.html" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -552,6 +555,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <None Include="Views\BlogPosts\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,10 +7,6 @@
 
     @model IEnumerable<BlogDS.Models.BlogPost>
 
-    @{
-        ViewBag.Title = "Index";
-    }
-
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -20,39 +16,13 @@
 
 <body>
 
-    <!-- Intro section start -->
-
-    <section id="intro" class="section">
-
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <div class="hello wow bounceInDown">
-                        <h1>My Thoughts On...</h1>
-                        <h3><span class="rotate">Emerging Technology | Travel | Coding | The Outdoors | Education | Food</span></h3>
-                    </div>
-
-                    <a href="#blog">
-                        <div class="mouse-icon">
-                            <div class="wheel"></div>
-                        </div>
-                    </a>
-
-                </div>
-
-            </div><!-- .row -->
-
-        </div><!-- .container -->
-
-    </section>
-
     <div class="container">
         <section>
             <div class="row">
+                <br />                
                 <div class="col-md-8">
+                    <p>@if (User.IsInRole("Admin"))
+                    {@Html.ActionLink("Create New Post", "Create")}</p>
 
                     @foreach (var post in Model)
                     {
@@ -61,10 +31,15 @@
                                 <img src="@Html.Raw(post.MediaURL)" alt="">
                             </div>
                             <div class="blog-post-body">
-                                <h2><a href="@Url.Action("Details", new { slug = post.Slug })">@post.Title</a></h2>
+                                <h2><a href="@Url.Action("Details", @post.Slug,"Blog")">@post.Title</a></h2>
                                 <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
                                 <p>@Html.Raw(post.Body)</p>
-                                <div class="read-more"><a href="@Url.Action("Details", new { slug = post.Slug })">Continue Reading</a></div>
+                                <div class="read-more"><a href="@Url.Action("Details", @post.Slug,"Blog")">Continue Reading</a></div>
+                            </div>
+                            <div class="admin-options">
+                                @if (User.IsInRole("Admin"))
+                                {@Html.ActionLink("Edit", "Edit", new { id = post.Id }) <span> | </span>
+                                @Html.ActionLink("Delete", "Delete", new { id = post.Id })}
                             </div>
                         </article>
                     }
@@ -121,129 +96,89 @@
                             </article>
                         </article>
                     </article>
-                        <!-- End Nested Comment -->
-                    </div>
-
-                        <div class="col-md-4 sidebar-gutter">
-                            <aside>
-                                <!-- sidebar-widget -->
-                                <div class="sidebar-widget">
-                                    <h3 class="sidebar-title">About Me</h3>
-                                    <div class="widget-container widget-about">
-                                        <a href="post.html"><img src="images/author.jpg" alt=""></a>
-                                        <h4>Jamie Mooz</h4>
-                                        <div class="author-title">Designer</div>
-                                        <p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
-                                    </div>
-                                </div>
-                                <!-- sidebar-widget -->
-                                <div class="sidebar-widget">
-                                    <h3 class="sidebar-title">Featured Posts</h3>
-                                    <div class="widget-container">
-                                        <article class="widget-post">
-                                            <div class="post-image">
-                                                <a href="post.html"><img src="images/90x60-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="post-body">
-                                                <h2><a href="post.html">The State of the Word 2014</a></h2>
-                                                <div class="post-meta">
-                                                    <span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="widget-post">
-                                            <div class="post-image">
-                                                <a href="post.html"><img src="images/90x60-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="post-body">
-                                                <h2><a href="post.html">Why The Muppets Needs to Channel 30 Rock</a></h2>
-                                                <div class="post-meta">
-                                                    <span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="widget-post">
-                                            <div class="post-image">
-                                                <a href="post.html"><img src="images/90x60-3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="post-body">
-                                                <h2><a href="post.html">The State of the Word 2014</a></h2>
-                                                <div class="post-meta">
-                                                    <span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="widget-post">
-                                            <div class="post-image">
-                                                <a href="post.html"><img src="images/90x60-4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="post-body">
-                                                <h2><a href="post.html">Vintage-Inspired Finds for Your Home</a></h2>
-                                                <div class="post-meta">
-                                                    <span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="widget-post">
-                                            <div class="post-image">
-                                                <a href="post.html"><img src="images/90x60-5.jpg" alt=""></a>
-                                            </div>
-                                            <div class="post-body">
-                                                <h2><a href="post.html">The State of the Word 2014</a></h2>
-                                                <div class="post-meta">
-                                                    <span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                                <!-- sidebar-widget -->
-                                <div class="sidebar-widget">
-                                    <h3 class="sidebar-title">Socials</h3>
-                                    <div class="widget-container">
-                                        <div class="widget-socials">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-instagram"></i></a>
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                                            <a href="#"><i class="fa fa-reddit"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- sidebar-widget -->
-                                <div class="sidebar-widget">
-                                    <h3 class="sidebar-title">Categories</h3>
-                                    <div class="widget-container">
-                                        <ul>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Art</a></li>
-                                            <li><a href="#">Design</a></li>
-                                            <li><a href="#">Featured</a></li>
-                                            <li><a href="#">Graphics</a></li>
-                                            <li><a href="#">Peoples</a></li>
-                                            <li><a href="#">Uncategorized</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Blog Search Well -->
-                                <div class="sidebar-widget">
-                                    <h3 class="sidebar-title">Search</h3>
-                                    <div class="widget-container">
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <!-- /.input-group -->
-                                </div>
-                            </aside>
-                        </div>
+                    <!-- End Nested Comment -->
                 </div>
-            </section>
-        </div><!-- /.container -->
+                <div class="col-md-4 sidebar-gutter">
+                    <aside>
+                        <!-- sidebar-widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">About Me</h3>
+                            <div class="widget-container widget-about">
+                                <a href="http://dscinto.azurewebsites.net/"><img src="~/assets/images/ds1.jpg" /></a>
+                                <h4>Dan Scinto</h4>
+                                <div class="author-title">Adventurer</div>
+                                <p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
+                            </div>
+                        </div>
+                        <!-- sidebar-widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Featured Posts</h3>
+                            <div class="widget-container">
+
+                                @foreach (var post in Model)
+                                {
+                                    <article class="widget-post">
+                                        <div class="post-image">
+                                            <img src="@Html.Raw(post.MediaURL)" alt="">
+                                        </div>
+                                        <div class="post-body">
+                                            <h2><a href="@Url.Action("Details", new { slug = post.Slug })">@post.Title</a></h2>
+                                            <div class="post-meta">
+                                                <span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                }
+                            </div>
+                        </div>
+                        <!-- sidebar-widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Let's Be Social</h3>
+                            <div class="widget-container">
+                                <div class="widget-socials">
+                                    <a href="https://www.facebook.com/dpscinto"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/dpscinto"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/itsthejrny/"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://github.com/dpscinto"><i class="fa fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- sidebar-widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Categories</h3>
+                            <div class="widget-container">
+                                <ul>
+                                    <li><a href="#">Fashion</a></li>
+                                    <li><a href="#">Art</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Featured</a></li>
+                                    <li><a href="#">Graphics</a></li>
+                                    <li><a href="#">Peoples</a></li>
+                                    <li><a href="#">Uncategorized</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Blog Search Well -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="widget-container">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /.input-group -->
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </div><!-- /.container -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
 </body>
 </html>

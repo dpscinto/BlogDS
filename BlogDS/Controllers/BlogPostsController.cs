@@ -12,12 +12,23 @@ namespace BlogDS.Controllers
 {
     public class BlogPostsController : Controller
     {
+        //[Authorize (Roles="Admin")] Every single class can only be accessed by an Admin
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
         public ActionResult Index()
         {
+
             return View(db.Posts.OrderByDescending(p => p.Created).Take(5).ToList());
+        }
+
+        // GET: BlogPosts
+        [Authorize(Roles = "Admin")]
+        public ActionResult Admin()
+        {
+
+            return View(db.Posts.OrderByDescending(p => p.Created).ToList());
         }
 
         // GET: BlogPosts/Details/5
@@ -36,6 +47,7 @@ namespace BlogDS.Controllers
         }
 
         // GET: BlogPosts/Create
+        [Authorize (Roles="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +57,7 @@ namespace BlogDS.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Title,Body,MediaURL")] BlogPost blogPost)
         {
@@ -73,6 +86,7 @@ namespace BlogDS.Controllers
         }
 
         // GET: BlogPosts/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +105,7 @@ namespace BlogDS.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Body,MediaURL")] BlogPost blogPost)
         {
@@ -109,6 +124,7 @@ namespace BlogDS.Controllers
         }
 
         // GET: BlogPosts/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -125,6 +141,7 @@ namespace BlogDS.Controllers
 
         // POST: BlogPosts/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
