@@ -12,6 +12,7 @@ using BlogDS.Models;
 
 namespace BlogDS.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class AccountController : Controller
     {

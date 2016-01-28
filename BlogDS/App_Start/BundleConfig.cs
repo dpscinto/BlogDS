@@ -32,9 +32,7 @@ namespace BlogDS
                       "~/Scripts/wow.min.js",
                       "~/Scripts/smoothscroll.js",
                       "~/Scripts/jquery.fitvids.js",
-                      "~/Scripts/custom.js",
-                      "~/Scripts/mooz.scripts.min.js",
-                      "~/Scripts/jquery.bxslider.min.js"));
+                      "~/Scripts/custom.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -43,10 +41,10 @@ namespace BlogDS
                       "~/Content/owl.carousel.css",
                       "~/Content/magnific-popup.css",
                       "~/Content/simpletextrotator.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/animate.css",
-                      "~/Content/style.css",
-                      "~/Content/jquery.bxslider.css"));
+                      "~/Content/style.css"));
                                   
         }
     }

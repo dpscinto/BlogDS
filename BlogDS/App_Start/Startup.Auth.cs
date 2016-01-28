@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+using Owin.Security.Providers.LinkedIn;
 using Owin;
 using BlogDS.Models;
 
@@ -50,19 +51,17 @@ namespace BlogDS
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseLinkedInAuthentication("77yd97dhv9kmwx", "c8pCymDlIegdXd51");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1530393217258385",
+               appSecret: "aef33f92f728eb797299467838fe9c3b");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "285759766599-0pvh4q9c5jg8r1092fmbh4fubd0cld3l.apps.googleusercontent.com",
+                ClientSecret = "4yLH6eIcyvWMY0wViQEZ_22t"
+            });
         }
     }
 }

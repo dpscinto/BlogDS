@@ -38,7 +38,6 @@ c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Micr
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Microsoft.Owin.Security.OAuth.dll
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Microsoft.Owin.Security.Twitter.dll
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Microsoft.Web.Infrastructure.dll
-c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Newtonsoft.Json.dll
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\Owin.dll
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\System.Web.Helpers.dll
 c:\users\dan scinto\documents\visual studio 2015\Projects\BlogDS\BlogDS\bin\System.Web.Mvc.dll
@@ -85,3 +84,19 @@ C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\Send
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\SendGridMail.dll
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\System.Net.Http.Formatting.dll
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\System.Net.Http.Formatting.xml
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\csc.exe.config
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\csc.rsp
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\csi.exe
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\csi.rsp
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\System.AppContext.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\System.Console.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\vbc.exe.config
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\vbc.rsp
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\Owin.Security.Providers.dll

@@ -1,20 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    @model IEnumerable<BlogDS.Models.BlogPost>
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-
-<body>
-
-    <!-- Navigation start -->
+﻿    <!-- Navigation start -->
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
@@ -35,6 +19,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://dscinto.azurewebsites.net/">Home</a></li>
                     <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://localhost:44300/account/login">Log In</a></li>
                 </ul>
             </div>
 
@@ -42,9 +28,37 @@
     </nav>
 
     <!-- Navigation end -->
+    <!-- Intro section start -->
 
-    <div class="container">
-        <section>
+    <section id="intro" class="section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="hello wow bounceInDown">
+                        <h1>My Thoughts On...</h1>
+                        <h3><span class="rotate">Emerging Technology. | Travel. | Coding. | The Outdoors. | Education. | Food.</span></h3>
+                    </div>
+
+                    <a href="#blog">
+                        <div class="mouse-icon">
+                            <div class="wheel"></div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div><!-- .row -->
+
+        </div><!-- .container -->
+
+    </section><!--Intro section end-->
+
+    <div class="container body-content">
+        <section id="blog">
             <div class="row">
                 <div class="col-md-8">
 
@@ -126,6 +140,3 @@
     </div>
     </section>
 </div><!-- /.container -->
-
-</body>
-</html>

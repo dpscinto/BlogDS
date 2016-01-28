@@ -10,6 +10,7 @@ using BlogDS.Models;
 
 namespace BlogDS.Controllers
 {
+    [RequireHttps]
     public class BlogPostsController : Controller
     {
         //[Authorize (Roles="Admin")] Every single class can only be accessed by an Admin
