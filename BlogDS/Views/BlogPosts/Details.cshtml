@@ -18,8 +18,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://dscinto.azurewebsites.net/">Home</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://localhost:44300/Blogposts">Blog</a></li>
+                    <li><a href="https://localhost:44300/Home/Contact">Contact</a></li>
                     <li><a href="https://localhost:44300/account/login">Log In</a></li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@
     <!-- Navigation end -->
     <!-- Intro section start -->
 
-    <section id="intro" class="section">
+    <section id="intro2" class="section">
 
         <div class="container">
 
@@ -39,8 +39,8 @@
                 <div class="col-md-12">
 
                     <div class="hello wow bounceInDown">
-                        <h1>My Thoughts On...</h1>
-                        <h3><span class="rotate">Emerging Technology. | Travel. | Coding. | The Outdoors. | Education. | Food.</span></h3>
+                        <h1>@Model.Title</h1>
+                        <h3><span>By Dan Scinto</span></h3>
                     </div>
 
                     <a href="#blog">
@@ -56,25 +56,21 @@
         </div><!-- .container -->
 
     </section><!--Intro section end-->
-
+<br />
     <div class="container body-content">
         <section id="blog">
             <div class="row">
                 <div class="col-md-8">
-
-                    @foreach (var post in Model)
-                      {
                           <article class="blog-post">
                               <div class="blog-post-image">
-                                  <img src="@Html.Raw(post.MediaURL)" alt="">
+                                  <img src="@Html.Raw(Model.MediaURL)" alt="">
                               </div>
                               <div class="blog-post-body">
-                                  <h2><a href="@Url.Action("Details", new { slug = post.Slug })">@post.Title</a></h2>
-                                  <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
-                                  <p>@Html.Raw(post.Body)</p>
+                                  <h2>@Model.Title</h2>
+                                  <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(Model.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+                                  <p>@Html.Raw(Model.Body)</p>
                               </div>
                           </article>
-                      }
                 </div>
                 <div class="col-md-4 sidebar-gutter">
                     <aside>
@@ -82,31 +78,10 @@
                         <div class="sidebar-widget">
                             <h3 class="sidebar-title">About Me</h3>
                             <div class="widget-container widget-about">
-                                <a href="post.html"><img src="images/author.jpg" alt=""></a>
+                                <a href="http://dscinto.azurewebsites.net/"><img src="~/assets/images/ds1.jpg" /></a>
                                 <h4>Dan Scinto</h4>
                                 <div class="author-title">Adventurer</div>
                                 <p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
-                            </div>
-                        </div>
-                        <!-- sidebar-widget -->
-                        <div class="sidebar-widget">
-                            <h3 class="sidebar-title">Featured Posts</h3>
-                            <div class="widget-container">
-
-                                @foreach (var post in Model)
-                                {
-                                    <article class="widget-post">
-                                        <div class="post-image">
-                                            <img src="@Html.Raw(post.MediaURL)" alt="">
-                                        </div>
-                                        <div class="post-body">
-                                            <h2><a href="@Url.Action("Details", new { slug = post.Slug })">@post.Title</a></h2>
-                                            <div class="post-meta">
-                                                <span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
-                                            </div>
-                                        </div>
-                                    </article>
-                                }
                             </div>
                         </div>
             <!-- sidebar-widget -->
@@ -126,11 +101,12 @@
                 <h3 class="sidebar-title">Categories</h3>
                    <div class="widget-container">
                     <ul>
-                        <li><a href="#">Fashion</a></li>
-                        <li><a href="#">Art</a></li>
-                        <li><a href="#">Featured</a></li>
-                        <li><a href="#">Graphics</a></li>
-                        <li><a href="#">Peoples</a></li>
+                        <li><a href="#">Emerging Tech</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Coding</a></li>
+                        <li><a href="#">The Outdoors</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Food</a></li>
                         <li><a href="#">Uncategorized</a></li>
                     </ul>
                    </div>

@@ -18,7 +18,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://dscinto.azurewebsites.net/">Home</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://localhost:44300/Home/Contact">Contact</a></li>
                     <li><a href="https://localhost:44300/account/login">Log In</a></li>
                 </ul>
             </div>
@@ -73,10 +73,10 @@
                             <img src="@Html.Raw(post.MediaURL)" alt="">
                         </div>
                         <div class="blog-post-body">
-                            <h2><a href="@Url.Action("Details", new { slug = post.Slug })">@post.Title</a></h2>
+                            <h2><a href="@Url.Action(@post.Slug,"Blog")">@post.Title</a></h2>
                             <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
                             <p>@Html.Raw(post.Body)</p>
-                            <div class="read-more"><a href="@Url.Action("Details", @post.Slug,"Blog")">Continue Reading</a></div>
+                            <div class="read-more"><a href="@Url.Action(@post.Slug,"Blog")">Continue Reading</a></div>
                         </div>
                         <div class="admin-options">
                             @if (User.IsInRole("Admin"))
@@ -164,7 +164,7 @@
                                         <img src="@Html.Raw(post.MediaURL)" alt="">
                                     </div>
                                     <div class="post-body">
-                                        <h2><a href="@Url.Action("Details", new { slug = post.Slug })">@post.Title</a></h2>
+                                        <h2><a href="@Url.Action(@post.Slug,"Blog")">@post.Title</a></h2>
                                         <div class="post-meta">
                                             <span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
                                         </div>
@@ -190,12 +190,12 @@
                         <h3 class="sidebar-title">Categories</h3>
                         <div class="widget-container">
                             <ul>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Art</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Featured</a></li>
-                                <li><a href="#">Graphics</a></li>
-                                <li><a href="#">Peoples</a></li>
+                                <li><a href="#">Emerging Tech</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Coding</a></li>
+                                <li><a href="#">The Outdoors</a></li>
+                                <li><a href="#">Education</a></li>
+                                <li><a href="#">Food</a></li>
                                 <li><a href="#">Uncategorized</a></li>
                             </ul>
                         </div>

@@ -34,7 +34,8 @@
 		 * Background image
 		/* ---------------------------------------------- */
 
-		$('#intro').backstretch(['assets/images/IMG_9788.JPG']);
+		$('#intro').backstretch(['/assets/images/IMG_9788.JPG']);
+		$('#intro2').backstretch(['/assets/images/compass.jpg']);
 
 		/* ---------------------------------------------- /*
 		 * Navbar
@@ -152,7 +153,7 @@
 		 * Contact form ajax
 		/* ---------------------------------------------- */
 
-		$("#contact-form").submit(function(e) {
+		/*$("#contact-form").submit(function(e) {
 
 			e.preventDefault();
 
@@ -197,7 +198,7 @@
 
 			return false;
 
-		});
+		});*/
 
 	});
 

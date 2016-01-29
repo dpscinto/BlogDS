@@ -16,7 +16,7 @@ namespace BlogDS
             routes.MapRoute(
                 name: "NewSlug",
                 url: "Blog/{slug}",
-                defaults: new { controller = "Posts", action = "Details", slug = UrlParameter.Optional }
+                defaults: new { controller = "BlogPosts", action = "Details", slug = UrlParameter.Optional }
             );
 
             routes.MapRoute(

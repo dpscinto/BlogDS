@@ -251,6 +251,7 @@
     <Content Include="assets\css\owl.theme.css" />
     <Content Include="assets\css\simpletextrotator.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\images\compass.jpg" />
     <Content Include="assets\images\DS-logo %281%29.png" />
     <Content Include="assets\images\ds1.jpg" />
     <Content Include="assets\images\IMG_9788.JPG" />
@@ -327,7 +328,6 @@
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\FontAwesome.otf" />
-    <Content Include="assets\php\contactForm.php" />
     <Content Include="private.config" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -576,6 +576,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\php\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

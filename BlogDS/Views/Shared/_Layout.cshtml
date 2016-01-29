@@ -11,7 +11,7 @@
 
     <link rel="icon"
           type="image/png"
-          href="assets/images/DS-logo (1).png">
+          href="/assets/images/DS-logo (1).png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -29,9 +29,11 @@
 
         <!--Blog Content-->
 
-            <div class="body-content">
-                @RenderBody()
-                <hr />
+        <div class="body-content">
+            @RenderBody()
+            <br />
+        </div>
+
                 <footer class="footer">
                     <div class="footer-socials">
                         <a href="https://www.facebook.com/dpscinto"><i class="fa fa-facebook"></i></a>
@@ -43,7 +45,7 @@
                         <i class="fa fa-copyright"></i> 2016. Daniel Scinto<br>
                     </div>
                 </footer>
-            </div>
+
 
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
