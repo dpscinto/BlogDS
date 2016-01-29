@@ -21,7 +21,7 @@ img {
 }
 
 a {
-	color: #EF4836;
+	color: #8C8C8C;
 }
 
 a:hover {
@@ -203,17 +203,17 @@ a,
 
 .btn-custom-1, .btn-custom-2 {
 	background: transparent;
-	border: 2px solid #EF4836;
+	border: 2px solid #8C8C8C;
 	padding: 15px 25px;
 }
 
 .btn-custom-2 {
-	border: 2px solid #222;
+	border: 2px solid #FFF;
 }
 
 .btn-custom-1:hover, .btn-custom-1:focus, .btn-custom-1:active, .btn-custom-1.active {
-	background: #EF4836;
-	border: 2px solid #EF4836;
+	background: #C4C4C4;
+	border: 2px solid #8C8C8C;
 	color: #FFF;
 }
 
@@ -309,6 +309,14 @@ a,
 }
 
 /* ---------------------------------------------- /*
+ * DotDotDot
+/* ---------------------------------------------- */
+
+.dotdotdot{
+    height: 200px;
+}
+
+/* ---------------------------------------------- /*
  * Labels
 /* ---------------------------------------------- */
 
@@ -335,7 +343,7 @@ a,
 
 .section, .callout {
 	position: relative;
-	padding: 120px 0;
+	padding: 20px 0;
 }
 
 .callout {
@@ -343,7 +351,7 @@ a,
 }
 
 .headline {
-	margin: 0 0 60px;
+	margin: 0 0 10px;
 }
 
 .headline p {
@@ -688,16 +696,16 @@ h3 > .fa {
 /* ---------------------------------------------- */
 
 #contact {
-	background: #18191a;
-	color: #FFF;
+	background: #FFF;
+	color: #222;
 }
 
 #contact h1, #contact h2, #contact h3, #contact h4, #contact h5, #contact h6 {
-	color: #FFF;
+	color: #222;
 }
 
-#contact .form-control {
-	border: 0;
+/*#contact .form-control {
+	border: 0;*/
 }
 
 .ajax-response {
@@ -707,7 +715,7 @@ h3 > .fa {
 #footer {
 	background: #141414;
 	padding: 20px 0;
-	color: #FFF;
+	color: #222;
 }
 
 #footer .copy {
@@ -975,6 +983,9 @@ h3 > .fa {
 	font-weight: 400;
 	line-height: 20px;
 	color: #B5B5B5;
+	text-align: center;
+}
+.widget-about .author-quote {
 	text-align: center;
 }
 .widget-about p {

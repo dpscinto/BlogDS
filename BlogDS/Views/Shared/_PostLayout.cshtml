@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Dan Scinto's Blog</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="icon"
+          type="image/png"
+          href="/assets/images/DS-logo (1).png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>    
+
+        <!--Blog Content-->
+
+        <div class="body-content">
+            @RenderBody()
+            <br />
+        </div>
+
+                <footer class="footer">
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/dpscinto"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/dpscinto"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/itsthejrny/"><i class="fa fa-instagram"></i></a>
+                        <a href="https://github.com/dpscinto"><i class="fa fa-github"></i></a>
+                    </div>
+                    <div class="footer-bottom">
+                        <i class="fa fa-copyright"></i> 2016. Daniel Scinto<br>
+                    </div>
+                </footer>
+
+
+            @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    <script src="~/Scripts/custom.js"></script>
+            @RenderSection("scripts", required: false)
+
+    </body>
+</html>

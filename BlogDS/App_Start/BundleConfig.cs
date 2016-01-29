@@ -32,7 +32,7 @@ namespace BlogDS
                       "~/Scripts/wow.min.js",
                       "~/Scripts/smoothscroll.js",
                       "~/Scripts/jquery.fitvids.js",
-                      "~/Scripts/custom.js"));
+                      "~/Scripts/jquery.dotdotdot.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

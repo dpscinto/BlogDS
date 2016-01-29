@@ -331,6 +331,7 @@
     <Content Include="private.config" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\customAll.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -345,6 +346,8 @@
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery.backstretch.min.js" />
     <Content Include="Scripts\jquery.bxslider.min.js" />
+    <Content Include="Scripts\jquery.dotdotdot.js" />
+    <Content Include="Scripts\jquery.dotdotdot.min.js" />
     <Content Include="Scripts\jquery.fitvids.js" />
     <Content Include="Scripts\jquery.magnific-popup.min.js" />
     <Content Include="Scripts\jquery.simple-text-rotator.min.js" />
@@ -573,6 +576,7 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Views\BlogPosts\Admin.cshtml" />
+    <Content Include="Views\Shared\_PostLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

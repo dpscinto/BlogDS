@@ -1,4 +1,9 @@
-﻿    <!-- Navigation start -->
+﻿@model IEnumerable<BlogDS.Models.BlogPost>  
+    @{ 
+        Layout = "~/Views/Shared/_PostLayout.cshtml";
+
+    }  
+<!-- Navigation start -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
 
@@ -75,7 +80,9 @@
                         <div class="blog-post-body">
                             <h2><a href="@Url.Action(@post.Slug,"Blog")">@post.Title</a></h2>
                             <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
-                            <p>@Html.Raw(post.Body)</p>
+                            <div class="dotdotdot">
+                                <p>@Html.Raw(post.Body)</p>
+                            </div>
                             <div class="read-more"><a href="@Url.Action(@post.Slug,"Blog")">Continue Reading</a></div>
                         </div>
                         <div class="admin-options">
@@ -148,8 +155,11 @@
                         <div class="widget-container widget-about">
                             <a href="http://dscinto.azurewebsites.net/"><img src="~/assets/images/ds1.jpg" /></a>
                             <h4>Dan Scinto</h4>
-                            <div class="author-title">Adventurer</div>
-                            <p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
+                            <div class="author-title">connoisseur of things</div>
+                            <div class="author-quote">
+                                <p>I'm often traveling around the world, exploring new cities and remote wilderness. I love to hike and ski and try new food and collect maps. I take a lot of photos along the way.</p>
+                                <p><strong>Remember:</strong> A rolling stone gathers no moss.</p>
+                            </div>
                         </div>
                     </div>
                     <!-- sidebar-widget -->
