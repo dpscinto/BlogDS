@@ -1,0 +1,62 @@
+﻿@model BlogDS.Models.ContactMessage
+
+<!-- Contact section start -->
+
+<section id="contact" class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12 headline wow bounceInLeft">
+                <h2>Get in Touch</h2>
+                <p>Send me a message or give me a ring. I'd love to hear from you.</p>
+            </div>
+
+            <div class="col-md-6 wow bounceInUp">
+
+                <p>Please reach out in regards to opportunities in tech, education, or education tech.</p>
+
+                <ul class="icon-list">
+                    <li><i class="fa fa-fw fa-map-marker"></i>San Francisco, CA</li>
+                    <li><i class="fa fa-fw fa-phone"></i>+1 336.337.8040</li>
+                    <li><i class="fa fa-fw fa-envelope-o"></i><a href="mailto:">dpscinto@gmail.com</a></li>
+                    <li><i class="fa fa-fw fa-globe"></i><a href="">http://www.dscinto.azurewebsites.net</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-6 wow bounceInRight">
+
+                <form id="contact-form" role="form" action="@Url.Action("Contact", "Home")" method="post" novalidate>
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label class="sr-only" for="c_name">Name</label>
+                        <input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="c_email">Email Address</label>
+                        <input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="c_message">Your Message</label>
+                        <textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Enter your message here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-custom-1 pull-right">
+                        <i class="fa fa-bullhorn icon-before"></i> Send it
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div><!-- .row -->
+
+    </div><!-- .container -->
+
+</section>
+
+<!-- Contact section end -->
