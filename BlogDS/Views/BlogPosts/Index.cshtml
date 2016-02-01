@@ -1,73 +1,53 @@
-﻿@model IEnumerable<BlogDS.Models.BlogPost>  
-    @{ 
-        Layout = "~/Views/Shared/_PostLayout.cshtml";
+﻿@model IEnumerable<BlogDS.Models.BlogPost>
+@{
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
 
-    }  
-@*<!-- Navigation start -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
+}
 
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://dscinto.azurewebsites.net/">Dan Scinto</a>
-            </div>
+<!-- Preloader -->
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="http://dscinto.azurewebsites.net/">Home</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="https://localhost:44300/Home/Contact">Contact</a></li>
-                    <li><a href="https://localhost:44300/account/login">Log In</a></li>
-                </ul>
-            </div>
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"><h4>Dan Scinto</h4></div>
+    </div>
+</div>
 
-        </div>
-    </nav>
+<!-- Intro section start -->
 
-    <!-- Navigation end -->*@
-    <!-- Intro section start -->
+<section id="intro" class="section">
 
-    <section id="intro" class="section">
+    <div class="container">
 
-        <div class="container">
+        <div class="row">
 
-            <div class="row">
+            <div class="col-md-12">
 
-                <div class="col-md-12">
-
-                    <div class="hello wow bounceInDown">
-                        <h1>My Thoughts On...</h1>
-                        <h3><span class="rotate">Emerging Technology. | Travel. | Coding. | The Outdoors. | Education. | Food.</span></h3>
-                    </div>
-
-                    <a href="#blog">
-                        <div class="mouse-icon">
-                            <div class="wheel"></div>
-                        </div>
-                    </a>
-
+                <div class="hello wow bounceInDown">
+                    <h1>My Thoughts On...</h1>
+                    <h3><span class="rotate">Emerging Technology. | Travel. | Coding. | The Outdoors. | Education. | Food.</span></h3>
                 </div>
 
-            </div><!-- .row -->
+                <a href="#blog">
+                    <div class="mouse-icon">
+                        <div class="wheel"></div>
+                    </div>
+                </a>
 
-        </div><!-- .container -->
+            </div>
 
-    </section><!--Intro section end-->
+        </div><!-- .row -->
 
-    <div class="container body-content">
-        <section id="blog">
-            <div class="row">
-                <br />
-                <div class="col-md-8">
-                    <p>
-                        @if (User.IsInRole("Admin"))
+    </div><!-- .container -->
+
+</section><!--Intro section end-->
+
+<div class="container body-content">
+    <section id="blog">
+        <div class="row">
+            <br />
+            <div class="col-md-8">
+                <p>
+                    @if (User.IsInRole("Admin"))
                     {@Html.ActionLink("Create New Post", "Create")}
                 </p>
 
@@ -88,7 +68,7 @@
                         <div class="admin-options">
                             @if (User.IsInRole("Admin"))
                             {@Html.ActionLink("Edit", "Edit", new { id = post.Id }) <span> | </span>
-                                @Html.ActionLink("Delete", "Delete", new { id = post.Id })}
+                            @Html.ActionLink("Delete", "Delete", new { id = post.Id })}
                         </div>
                     </article>
                 }
@@ -153,7 +133,7 @@
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">About Me</h3>
                         <div class="widget-container widget-about">
-                            <a href="http://dscinto.azurewebsites.net/"><img src="~/assets/images/ds1.jpg" /></a>
+                            <a href="http://dscinto.azurewebsites.net/"><img src="~/images/ds1.jpg" /></a>
                             <h4>Dan Scinto</h4>
                             <div class="author-title">connoisseur of things</div>
                             <div class="author-quote">

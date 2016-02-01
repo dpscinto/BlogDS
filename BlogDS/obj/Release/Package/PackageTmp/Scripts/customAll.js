@@ -22,7 +22,7 @@
 			}
 		});
 
-		$('a[href*=#]').bind("click", function(e){
+		$('a[href*="#"]').bind("click", function(e){
 			var anchor = $(this);
 			$('html, body').stop().animate({
 				scrollTop: $(anchor.attr('href')).offset().top
@@ -30,6 +30,16 @@
 			e.preventDefault();
 		});
 
+		/*$(document).ready(function () {
+		    $('a[href*=#]').bind("click", function (e) {
+		        e.preventDefault();
+		        var ziel = $(this).attr("href");
+
+		        $('html,body').animate({
+		            scrollTop: $(ziel).offset().top
+		        }, 1000, function () { location.hash = ziel; });
+		    });
+		});*/
 		/* ---------------------------------------------- /*
 		 * Background image
 		/* ---------------------------------------------- */
