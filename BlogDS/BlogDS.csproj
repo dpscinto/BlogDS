@@ -534,6 +534,8 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <None Include="Views\BlogPosts\Admin.cshtml" />
     <Content Include="Views\Shared\_PostLayout.cshtml" />
+    <Content Include="Views\BlogPosts\deleteComment.cshtml" />
+    <Content Include="Views\BlogPosts\editComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

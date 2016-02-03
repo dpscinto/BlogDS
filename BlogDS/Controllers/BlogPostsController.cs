@@ -137,6 +137,7 @@ namespace BlogDS.Controllers
         {
             if (ModelState.IsValid)
             {
+                blogPost.Updated = System.DateTimeOffset.Now;
                 db.Posts.Attach(blogPost);
 
                 db.Entry(blogPost).Property("Body").IsModified = true;
@@ -146,6 +147,7 @@ namespace BlogDS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(blogPost);
         }
 
@@ -172,9 +174,9 @@ namespace BlogDS.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin, Moderator")]
         [ValidateAntiForgeryToken]
-        public ActionResult editComment([Bind(Include = "Id,PostId,Created,Body")] Comment blogComment)
+        public ActionResult editComment([Bind(Include = "Id,PostId,Body")] Comment blogComment)
         {
-            var slug = db.Comments.Find(blogComment.PostId);
+            var slug = db.Posts.Find(blogComment.PostId).Slug;
             if (ModelState.IsValid)
             {
                 db.Comments.Attach(blogComment);
@@ -182,9 +184,9 @@ namespace BlogDS.Controllers
                 db.Entry(blogComment).Property("Body").IsModified = true;
 
                 db.SaveChanges();
-                //return RedirectToAction("Details", new { Slug = slug });
+
             }
-            return RedirectToAction("Details");
+            return RedirectToAction("Details", "BlogPosts", new { Slug = slug });
         }
 
         // GET: BlogPosts/Delete/5
@@ -217,7 +219,7 @@ namespace BlogDS.Controllers
 
         // GET: Comments/Delete/5
         [Authorize(Roles = "Admin, Moderator")]
-        public ActionResult comDelete(int? id)
+        public ActionResult deleteComment(int? id)
         {
             if (id == null)
             {
@@ -232,15 +234,16 @@ namespace BlogDS.Controllers
         }
 
         // POST: Comments/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("deleteComment")]
         [Authorize(Roles = "Admin, Moderator")]
         [ValidateAntiForgeryToken]
-        public ActionResult comDeleteConfirmed(int id)
+        public ActionResult deleteCommentConfirmed(int id)
         {
             Comment blogComment = db.Comments.Find(id);
+            var slug = blogComment.Post.Slug;           
             db.Comments.Remove(blogComment);
             db.SaveChanges();
-            return RedirectToAction("Details");
+            return RedirectToAction("Details", "BlogPosts", new { Slug = slug });
         }
 
         protected override void Dispose(bool disposing)

@@ -44,7 +44,8 @@
                     </div>
                     <div class="blog-post-body">
                         <h2>@Model.Title</h2>
-                        <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(Model.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+                        <div class="post-meta">
+                            <span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(Model.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span>/<span>Updated on: @Html.Raw(Model.Updated.Value.DateTime.ToLongDateString())</span></div>                            
                         <p>@Html.Raw(Model.Body)</p>
                     </div>
                 </article>
@@ -88,11 +89,11 @@
                                 <small>
                                     @com.Created.DateTime.ToLongDateString()
                                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-                                    {@Html.ActionLink("Edit", "Edit", new { id = com.Id }) <span> | </span>
-                                    @Html.ActionLink("Delete", "Delete", new { id = com.Id })}
+                                    {@Html.ActionLink("Edit", "editComment", new { id = com.Id }) <span> | </span>
+                                    @Html.ActionLink("Delete", "deleteComment", new { id = com.Id })}
                                 </small> 
                             </h4>
-                            <p>@com.Body</p>
+                            <p>@Html.Raw(com.Body)</p>
                         </article>
                     </article>
                 }
