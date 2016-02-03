@@ -1,111 +1,75 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+﻿@model IEnumerable<BlogDS.Models.BlogPost>
 
-    @model IEnumerable<BlogDS.Models.BlogPost>
-
-    @{
-        ViewBag.Title = "Index";
-    }
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-
-<body>
-
-    <div class="col-md-12">
-        <h2>Index</h2>
+<div class="container">
+        <h2>Admin</h2>
 
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Created)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Updated)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Body)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MediaURL)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Slug)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Author)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Categories)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tags)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Published)
-                </th>
-                <th></th>
-            </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Created)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Updated)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.Raw(item.Body)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MediaURL)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Slug)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Categories)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tags)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Published)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { slug = item.Slug }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
-            }
-
-        </table>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-
+        <div class="col-md-1">
+            <strong>@Html.DisplayNameFor(model => model.Created)</strong>
         </div>
+        <div class="col-md-1">
+            <strong>@Html.DisplayNameFor(model => model.Updated)</strong>
+</div>
+        <div class="col-md-1">
+            <strong>@Html.DisplayNameFor(model => model.Title)</strong>
+</div>
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.Body)</strong>
+</div>
+        <div class="col-md-2">
+            <strong>@Html.DisplayNameFor(model => model.MediaURL)</strong>
+</div>
+        <div class="col-md-1">
+            <strong>@Html.DisplayNameFor(model => model.Slug)</strong>
+</div>
+        <div class="col-md-1">
+            <strong>@Html.DisplayNameFor(model => model.Categories)</strong>
+</div>
+        <div class="col-md-1">
+            <strong>@Html.DisplayNameFor(model => model.Tags)</strong>
+</div>
+        <div class="col-md-1">
+            <strong>Options</strong>
+</div>
 
-</body>
-</html>
+        @foreach (var item in Model)
+            {
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Created)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Updated)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </div>
+                <div class="col-md-3">
+                    @Html.Raw(item.Body)
+                </div>
+                <div class="col-md-2 admin-table">
+                    @Html.DisplayFor(modelItem => item.MediaURL)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Slug)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Categories)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Tags)
+                </div>
+                <div class="col-md-1">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Details", "Details", new { slug = item.Slug })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </div>
+            </div>
+            <hr />
+        }
+
+    </div>
+

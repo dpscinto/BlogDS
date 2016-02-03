@@ -100,3 +100,7 @@ C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\Micr
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\obj\Release\BlogDS.dll
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\obj\Release\BlogDS.pdb
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\obj\Release\BlogDS.csprojResolveAssemblyReference.cache
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.Mvc.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.xml
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.Mvc.xml

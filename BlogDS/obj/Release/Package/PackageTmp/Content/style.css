@@ -7,9 +7,6 @@
  * General styles
 /* ---------------------------------------------- */
 
-@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//fonts.googleapis.com/css?family=Raleway:400,300,700);
-
 body {
 	font: 300 15px/1.6 'Raleway', serif, sans-serif;
 	color: #545454;
@@ -208,7 +205,7 @@ a,
 }
 
 .btn-custom-2 {
-	border: 2px solid #FFF;
+	border: 2px solid #222;
 }
 
 .btn-custom-1:hover, .btn-custom-1:focus, .btn-custom-1:active, .btn-custom-1.active {
@@ -309,14 +306,6 @@ a,
 }
 
 /* ---------------------------------------------- /*
- * DotDotDot
-/* ---------------------------------------------- */
-
-.dotdotdot{
-    height: 200px;
-}
-
-/* ---------------------------------------------- /*
  * Labels
 /* ---------------------------------------------- */
 
@@ -326,7 +315,7 @@ a,
 }
 
 .label-custom-1 {
-	background: #EF4836;
+	background: #8C8C8C;
 }
 
 .label-custom-2 {
@@ -530,7 +519,7 @@ h3 > .fa {
 }
 
 /* ---------------------------------------------- /*
- * Intro 2
+ * Intro
 /* ---------------------------------------------- */
 
 #intro2 {
@@ -585,7 +574,7 @@ h3 > .fa {
 }
 
 .widget-social li a:hover {
-	background: #EF4836;
+	background: #8C8C8C;
 }
 
 .stat .stat-icon {
@@ -697,16 +686,12 @@ h3 > .fa {
 
 #contact {
 	background: #FFF;
-	color: #222;
+	color: #000;
 }
 
 #contact h1, #contact h2, #contact h3, #contact h4, #contact h5, #contact h6 {
-	color: #222;
+	color: #000;
 }
-
-/*#contact .form-control {
-	border: 0;
-}*/
 
 .ajax-response {
 	margin-top: 15px;
@@ -715,7 +700,7 @@ h3 > .fa {
 #footer {
 	background: #141414;
 	padding: 20px 0;
-	color: #222;
+	color: #000;
 }
 
 #footer .copy {
@@ -738,7 +723,7 @@ h3 > .fa {
 }
 
 #status, .status-mes {
-	background-image: url(../assets/images/488.GIF);
+	background-image: url(../images/488.GIF);
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
@@ -780,70 +765,6 @@ h3 > .fa {
 		margin: 0 0 20px;
 	}
 
-}
-/*Blog Admin Options*/
-.admin-options {
-    text-align: center;
-}
-
-/*- BX Slaider reset -*/
-.bxslider {
-	margin: 0;
-	padding: 0;
-}
-.bx-wrapper .bx-viewport {
-	left: 0;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	border: none;
-}
-.bx-wrapper .bx-prev {
-	border: 1px solid #000;
-	background-image: none !important;
-	background-color: rgba(223, 223, 223, 0.34);
-}
-.bx-wrapper .bx-next {
-	border: 1px solid #000;
-	background-image: none !important;
-	background-color: rgba(223, 223, 223, 0.34);
-}
-.bx-wrapper .bx-prev:hover {
-	background-color: rgba(223, 223, 223, 0.34);
-}
-.bx-wrapper .bx-next:hover {
-	background-color: rgba(223, 223, 223, 0.34);
-}
-.bx-wrapper .bx-controls-direction a {
-	position: absolute;
-	top: 50%;
-	margin-top: -16px;
-	outline: 0;
-	width: 50px;
-	height: 50px;
-	text-indent: inherit;
-	z-index: 99;
-	color: #fff;
-	text-align: center;
-	line-height: 50px;
-}
-.main-slider img {
-	position: relative;
-}
-.main-slider h2 {
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-	background-color: rgba(0, 0, 0, 0.52);
-	color: #fff;
-	padding: 25px 40px;
-	font-size: 32px;
-}
-.main-slider h2 a {
-	color: #fff;
-}
-.main-slider h2 a:hover {
-	color: #dfdfdf;
 }
 /*- blog post -*/
 .blog-post {
@@ -942,6 +863,16 @@ h3 > .fa {
 	letter-spacing: 0.1px;
 	margin-bottom: 30px;
 }
+.blog-post .blog-post-body .dotdotdot {
+    height: 200px;
+}
+.blog-post .admin-options {
+    text-align: center;
+}
+.pager {
+    text-align: center;
+}
+
 /*- Sidebar -*/
 .sidebar-title {
 	background-color: #2B2B2B;
@@ -1061,7 +992,6 @@ h3 > .fa {
 }
 .section-title span {
 }
-
 /*- Footer -*/
 footer {
 	padding: 0;
@@ -1097,4 +1027,8 @@ footer .footer-socials a:hover {
 }
 footer .footer-bottom {
 	padding: 10px 0 40px;
+}
+.admin-table{
+    word-break: break-all;
+    word-wrap: break-word;
 }

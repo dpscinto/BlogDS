@@ -11,9 +11,11 @@
 
     <link rel="icon"
           type="image/png"
-          href="/assets/images/DS-logo (1).png">
+          href="/images/DS-logo (1).png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,300,700">
 
     </head>
 
@@ -37,13 +39,13 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://dscinto.azurewebsites.net/">Home</a></li>
-                        <li><a href="https://dscinto-blog.azurewebsites.net/account/login">Log In</a></li>                     
+                        <li><a href="http://dscinto.azurewebsites.net/">Home</a></li>                                            
                         <li><a href="https://dscinto-blog.azurewebsites.net/Home/Contact">Contact</a></li>
                         <li><a href="https://dscinto-blog.azurewebsites.net/BlogPosts">Blog</a></li>
+                        <li>@Html.Partial("_LoginPartial")</li>
                     </ul>
                 </div>
-
+                
             </div>
         </nav>
 
@@ -69,7 +71,6 @@
                 </footer>
 
 
-      
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")     
         <script src="~/Scripts/custom.js"></script>   

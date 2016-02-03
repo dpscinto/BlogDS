@@ -7,9 +7,6 @@
  * General styles
 /* ---------------------------------------------- */
 
-@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//fonts.googleapis.com/css?family=Raleway:400,300,700);
-
 body {
 	font: 300 15px/1.6 'Raleway', serif, sans-serif;
 	color: #545454;
@@ -335,7 +332,7 @@ a,
 
 .section, .callout {
 	position: relative;
-	padding: 120px 0;
+	padding: 20px 0;
 }
 
 .callout {
@@ -519,6 +516,20 @@ h3 > .fa {
 
 .hello {
 	margin: 0 0 100px;
+}
+
+/* ---------------------------------------------- /*
+ * Intro
+/* ---------------------------------------------- */
+
+#intro2 {
+	padding: 260px 0 160px 0;
+	text-align: center;
+	color: #FFF;
+}
+
+#intro2 h1, #intro2 h2, #intro2 h3, #intro2 h4, #intro2 h5, #intro2 h6 {
+	color: #FFF;
 }
 
 /* ---------------------------------------------- /*
@@ -858,6 +869,9 @@ h3 > .fa {
 .blog-post .admin-options {
     text-align: center;
 }
+.pager {
+    text-align: center;
+}
 
 /*- Sidebar -*/
 .sidebar-title {
@@ -1014,4 +1028,7 @@ footer .footer-socials a:hover {
 footer .footer-bottom {
 	padding: 10px 0 40px;
 }
-
+.admin-table{
+    word-break: break-all;
+    word-wrap: break-word;
+}

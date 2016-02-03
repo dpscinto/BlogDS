@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BlogDS.Models;
+using Microsoft.AspNet.Identity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace BlogDS.Controllers
 {
@@ -17,12 +20,13 @@ namespace BlogDS.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        
         // GET: BlogPosts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-
-            return View(db.Posts.OrderByDescending(p => p.Created).Take(5).ToList());
+            return View(db.Posts.OrderByDescending(p => p.Created).ToPagedList(1, 5));
         }
+
 
         // GET: BlogPosts
         [Authorize(Roles = "Admin")]
@@ -48,7 +52,7 @@ namespace BlogDS.Controllers
         }
 
         // GET: BlogPosts/Create
-        [Authorize (Roles="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -86,6 +90,26 @@ namespace BlogDS.Controllers
             return View(blogPost);
         }
 
+        // POST: Comments/Create
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult createComment([Bind(Include = "PostId,Body")]Comment comment)
+        {
+            var slug = db.Posts.Find(comment.PostId).Slug;
+            if (ModelState.IsValid)
+            {
+                comment.AuthorId = User.Identity.GetUserId();
+                comment.Created = System.DateTimeOffset.Now;
+
+                db.Comments.Add(comment);
+                db.SaveChanges();
+                //return RedirectToAction("Details", new {Slug = slug});
+            }
+            return RedirectToAction("Details", new { Slug = slug });
+
+        }
+
         // GET: BlogPosts/Edit/5
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
@@ -101,6 +125,7 @@ namespace BlogDS.Controllers
             }
             return View(blogPost);
         }
+
 
         // POST: BlogPosts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -122,6 +147,44 @@ namespace BlogDS.Controllers
                 return RedirectToAction("Index");
             }
             return View(blogPost);
+        }
+
+        // GET: Comments/Edit/5
+        [Authorize(Roles = "Admin, Moderator")]
+        public ActionResult editComment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Comment blogComment = db.Comments.Find(id);
+            if (blogComment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(blogComment);
+        }
+
+
+        // POST: Comments/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [Authorize(Roles = "Admin, Moderator")]
+        [ValidateAntiForgeryToken]
+        public ActionResult editComment([Bind(Include = "Id,PostId,Created,Body")] Comment blogComment)
+        {
+            var slug = db.Comments.Find(blogComment.PostId);
+            if (ModelState.IsValid)
+            {
+                db.Comments.Attach(blogComment);
+
+                db.Entry(blogComment).Property("Body").IsModified = true;
+
+                db.SaveChanges();
+                //return RedirectToAction("Details", new { Slug = slug });
+            }
+            return RedirectToAction("Details");
         }
 
         // GET: BlogPosts/Delete/5
@@ -152,6 +215,34 @@ namespace BlogDS.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Comments/Delete/5
+        [Authorize(Roles = "Admin, Moderator")]
+        public ActionResult comDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Comment blogComment = db.Comments.Find(id);
+            if (blogComment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(blogComment);
+        }
+
+        // POST: Comments/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin, Moderator")]
+        [ValidateAntiForgeryToken]
+        public ActionResult comDeleteConfirmed(int id)
+        {
+            Comment blogComment = db.Comments.Find(id);
+            db.Comments.Remove(blogComment);
+            db.SaveChanges();
+            return RedirectToAction("Details");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -160,5 +251,6 @@ namespace BlogDS.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

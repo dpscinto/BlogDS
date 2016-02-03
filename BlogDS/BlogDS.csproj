@@ -89,6 +89,14 @@
       <HintPath>..\packages\Owin.Security.Providers.1.26\lib\net45\Owin.Security.Providers.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SendGrid, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGrid.dll</HintPath>
       <Private>True</Private>
@@ -247,6 +255,7 @@
     <Content Include="Content\magnific-popup.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\owl.theme.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\simpletextrotator.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -255,6 +264,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\488.GIF" />
     <Content Include="images\asp.jpg" />
+    <Content Include="images\bubble.png" />
     <Content Include="images\clogo.png" />
     <Content Include="images\compass.jpg" />
     <Content Include="images\DS-logo %281%29.png" />
@@ -283,9 +293,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\customAll.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.11.0.js" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
     <Content Include="Scripts\jquery.backstretch.js" />
@@ -525,7 +532,6 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Views\BlogPosts\Admin.cshtml" />
     <Content Include="Views\Shared\_PostLayout.cshtml" />
   </ItemGroup>

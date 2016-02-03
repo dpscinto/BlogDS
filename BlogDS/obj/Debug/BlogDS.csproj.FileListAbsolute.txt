@@ -100,3 +100,7 @@ C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\rosl
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\vbc.exe.config
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\roslyn\vbc.rsp
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\Owin.Security.Providers.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.Mvc.dll
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.xml
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.Mvc.xml

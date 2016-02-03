@@ -3,9 +3,8 @@
     Layout = "~/Views/Shared/_PostLayout.cshtml";
 
 }
-      
-    <!-- Intro section start -->
 
+<!-- Intro section start -->
 <!-- Intro section start -->
 
 <section id="intro2" class="section">
@@ -35,53 +34,100 @@
 
 </section><!--Intro section end-->
 <br />
-    <div class="container body-content">
-        <section id="blog">
-            <div class="row">
-                <div class="col-md-8">
-                          <article class="blog-post">
-                              <div class="blog-post-image">
-                                  <img src="@Html.Raw(Model.MediaURL)" alt="">
-                              </div>
-                              <div class="blog-post-body">
-                                  <h2>@Model.Title</h2>
-                                  <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(Model.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
-                                  <p>@Html.Raw(Model.Body)</p>
-                              </div>
-                          </article>
-                </div>
-                <div class="col-md-4 sidebar-gutter">
-                    <aside>
-                        <!-- sidebar-widget -->
-                        <div class="sidebar-widget">
-                            <h3 class="sidebar-title">About Me</h3>
-                            <div class="widget-container widget-about">
-                                <a href="http://dscinto.azurewebsites.net/"><img src="~/images/ds1.jpg" /></a>
-                                <h4>Dan Scinto</h4>
-                                <div class="author-title">connoisseur of things</div>
-                                <div class="author-quote">
-                                    <p>I'm often traveling around the world, exploring new cities and remote wilderness. I love to hike and ski and try new food and collect maps. I take a lot of photos along the way.</p>
-                                    <p><strong>Remember:</strong> A rolling stone gathers no moss.</p>
-                                </div>
+<div class="container body-content">
+    <section id="blog">
+        <div class="row">
+            <div class="col-md-8">
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="@Html.Raw(Model.MediaURL)" alt="">
+                    </div>
+                    <div class="blog-post-body">
+                        <h2>@Model.Title</h2>
+                        <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(Model.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+                        <p>@Html.Raw(Model.Body)</p>
+                    </div>
+                </article>
+
+                <!-- Blog Comments -->
+                <!-- Comments Form -->
+                <h3>Leave a Comment:</h3>
+                @if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <form role="form" action="@Url.Action("CreateComment", "BlogPosts")" method="Post">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="PostId" value="@Model.Id" />
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="Body" rows="3"></textarea>
+                        </div>
+                        <div class="form-group pull-right">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    
+                }
+                else
+                {
+                    <p>Please <a href="@Url.Action("Login", "Account")">log in to leave a comment.</a></p>
+                }
+                <br />
+                <br />
+                <!-- Posted Comments -->
+                <!-- Comment -->
+                @foreach (var com in Model.Comments)
+            {
+                    <article class="media">
+                        <a class="pull-left">
+                            <img class="media-object" src="~/images/bubble.png" alt="">
+                        </a>
+                        <article class="media-body">
+                            <h4 class="media-heading">
+                                @com.Author.DisplayName
+                                <small>
+                                    @com.Created.DateTime.ToLongDateString()
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                    {@Html.ActionLink("Edit", "Edit", new { id = com.Id }) <span> | </span>
+                                    @Html.ActionLink("Delete", "Delete", new { id = com.Id })}
+                                </small> 
+                            </h4>
+                            <p>@com.Body</p>
+                        </article>
+                    </article>
+                }
+            </div>
+            <div class="col-md-4 sidebar-gutter">
+                <aside>
+                    <!-- sidebar-widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="sidebar-title">About Me</h3>
+                        <div class="widget-container widget-about">
+                            <a href="http://dscinto.azurewebsites.net/"><img src="~/images/ds1.jpg" /></a>
+                            <h4>Dan Scinto</h4>
+                            <div class="author-title">connoisseur of things</div>
+                            <div class="author-quote">
+                                <p>I'm often traveling around the world, exploring new cities and remote wilderness. I love to hike and ski and try new food and collect maps. I take a lot of photos along the way.</p>
+                                <p><strong>Remember:</strong> A rolling stone gathers no moss.</p>
                             </div>
                         </div>
-            <!-- sidebar-widget -->
-            <div class="sidebar-widget">
-                <h3 class="sidebar-title">Categories</h3>
-                   <div class="widget-container">
-                    <ul>
-                        <li><a href="#">Emerging Tech</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Coding</a></li>
-                        <li><a href="#">The Outdoors</a></li>
-                        <li><a href="#">Education</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Uncategorized</a></li>
-                    </ul>
-                   </div>
+                    </div>
+                    <!-- sidebar-widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="widget-container">
+                            <ul>
+                                <li><a href="#">Emerging Tech</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Coding</a></li>
+                                <li><a href="#">The Outdoors</a></li>
+                                <li><a href="#">Education</a></li>
+                                <li><a href="#">Food</a></li>
+                                <li><a href="#">Uncategorized</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
             </div>
-              </aside>
-            </div>
-    </div>
     </section>
 </div><!-- /.container -->
