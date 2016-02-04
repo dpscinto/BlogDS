@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <h2>Edit</h2>
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Create", "BlogPosts", FormMethod.Post, new { enctype = "Multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
@@ -72,12 +72,12 @@
     </div>
 </div>
 
-    @section Scripts {
-        <script src="/Scripts/tinymce/tinymce.min.js"></script>
-        <script src="/Scripts/tinymce/jquery.tinymce.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#editor").tinymce({});
-            });
-        </script>
-    }
+@section Scripts {
+    <script src="/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="/Scripts/tinymce/jquery.tinymce.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#editor").tinymce({});
+        });
+    </script>
+}

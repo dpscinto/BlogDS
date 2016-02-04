@@ -10,6 +10,7 @@ using BlogDS.Models;
 using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace BlogDS.Controllers
 {
@@ -64,8 +65,9 @@ namespace BlogDS.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body,MediaURL")] BlogPost blogPost)
+        public ActionResult Create([Bind(Include = "Id,Title,Body,MediaURL")] BlogPost blogPost, HttpPostedFileBase image)
         {
+            blogPost.Created = new DateTimeOffset(DateTime.Now);
             if (ModelState.IsValid)
             {
                 var Slug = StringUtilities.URLFriendly(blogPost.Title);
@@ -79,9 +81,16 @@ namespace BlogDS.Controllers
                     ModelState.AddModelError("Title", "The title must be unique.");
                     return View(blogPost);
                 }
+                if(ImageUploadValidator.IsWebFriendlyImage(image))
+                {
+                    var fileName = Path.GetFileName(image.FileName);
+                    image.SaveAs(Path.Combine(Server.MapPath("~/images/Blog/"), fileName));
+                    blogPost.MediaURL = "~/images/Blog/" + fileName;
+                }
+
                 blogPost.Slug = Slug;
 
-                blogPost.Created = System.DateTimeOffset.Now;
+                blogPost.Created = new DateTimeOffset(DateTime.Now);
                 db.Posts.Add(blogPost);
                 db.SaveChanges();
                 return RedirectToAction("Index");

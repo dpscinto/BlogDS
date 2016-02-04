@@ -40,16 +40,26 @@
             <div class="col-md-8">
                 <article class="blog-post">
                     <div class="blog-post-image">
-                        <img src="@Html.Raw(Model.MediaURL)" alt="">
+                        @if (Model.MediaURL != null)
+                        {
+                            <img class="img-responsive" src="@Url.Content(Model.MediaURL)" alt="">
+                        }
                     </div>
                     <div class="blog-post-body">
                         <h2>@Model.Title</h2>
                         <div class="post-meta">
-                            <span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@Html.Raw(Model.Created.DateTime.ToLongDateString())</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span>/<span>Updated on: @Html.Raw(Model.Updated.Value.DateTime.ToLongDateString())</span></div>                            
+                            <span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/
+                            <span><i class="fa fa-clock-o"></i>@Model.Created.DateTime.ToLongDateString()</span>/
+                            <span><i class="fa fa-comment-o"></i> <a href="#comment-zone">@Model.Comments.Count</a></span>
+                            @if (Model.Updated != null)
+                            {
+                                <span>/  Updated on: @Model.Updated.Value.DateTime.ToLongDateString()</span>
+                            }
+                        </div>
                         <p>@Html.Raw(Model.Body)</p>
                     </div>
                 </article>
-
+                <a name="comment-zone"></a>
                 <!-- Blog Comments -->
                 <!-- Comments Form -->
                 <h3>Leave a Comment:</h3>
@@ -67,7 +77,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    
+
                 }
                 else
                 {
@@ -76,7 +86,7 @@
                 <br />
                 <br />
                 <!-- Posted Comments -->
-                <!-- Comment -->
+                <!-- Comment -->            
                 @foreach (var com in Model.Comments)
             {
                     <article class="media">
@@ -91,7 +101,7 @@
                                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                                     {@Html.ActionLink("Edit", "editComment", new { id = com.Id }) <span> | </span>
                                     @Html.ActionLink("Delete", "deleteComment", new { id = com.Id })}
-                                </small> 
+                                </small>
                             </h4>
                             <p>@Html.Raw(com.Body)</p>
                         </article>
@@ -130,5 +140,6 @@
                     </div>
                 </aside>
             </div>
+        </div>
     </section>
 </div><!-- /.container -->

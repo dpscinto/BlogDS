@@ -151,6 +151,21 @@
 		    });
 		});
 
+	    /* ---------------------------------------------- /*
+         * Isotope - Category Filter
+        /* ---------------------------------------------- */
+
+		//$('.grid').isotope({
+		//        // options
+		//    itemSelector: '.grid-item',
+		//    layoutMode: 'vertical'
+		//});
+
+		//$('.filter-button-group').on('click', 'button', function () {
+		//    var filterValue = $(this).attr('data-filter');
+		//    $container.isotope({ filter: filterValue });
+		//});
+
 		/* ---------------------------------------------- /*
 		 * E-mail validation
 		/* ---------------------------------------------- */

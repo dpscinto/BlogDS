@@ -46,7 +46,7 @@
 
 </section><!--Intro section end-->
 
-<div class="container body-content">
+<div class="container body-content grid">
     <section id="blog">
         <div class="row">
             <br />
@@ -58,22 +58,33 @@
 
                 @foreach (var post in Model)
                 {
-                    <article class="blog-post">
+                    <article class="blog-post grid-item">
                         <div class="blog-post-image">
-                            <img src="@Html.Raw(post.MediaURL)" alt="">
+                            @if (post.MediaURL != null)
+                            {
+                                <img class="img-responsive" src="@Url.Content(post.MediaURL)" alt="">
+                            }
                         </div>
                         <div class="blog-post-body">
                             <h2><a href="@Url.Action(@post.Slug,"Blog")">@post.Title</a></h2>
-                            <div class="post-meta"><span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/<span><i class="fa fa-clock-o"></i>@post.Created.DateTime.ToLongDateString()</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span>/<span>Updated on: @post.Updated.Value.DateTime.ToLongDateString()</span></div>
+                            <div class="post-meta">
+                                <span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/
+                                <span><i class="fa fa-clock-o"></i>@post.Created.DateTime.ToLongDateString()</span>/
+                                <span><i class="fa fa-comment-o"></i> <a href="@Url.Action("Details","BlogPosts", new { @post.Slug })/#comment-zone">@post.Comments.Count</a></span>
+                                @if (post.Updated != null)
+                                {
+                                    <div><span>Updated on: @post.Updated.Value.DateTime.ToLongDateString()</span></div>
+                                }
+                            </div>
                             <div class="dotdotdot">
                                 <p>@Html.Raw(post.Body)</p>
                             </div>
-                            <div class="read-more"><a href="@Url.Action(@post.Slug,"Blog")">Continue Reading</a></div>
-                        </div>
-                        <div class="admin-options">
-                            @if (User.IsInRole("Admin"))
-                            {@Html.ActionLink("Edit", "Edit", new { id = post.Id }) <span> | </span>
-                            @Html.ActionLink("Delete", "Delete", new { id = post.Id })}
+                            <div class="read-more"><a href="@Url.Action("Details","BlogPosts", new { @post.Slug })">Continue Reading</a></div>
+                            <div class="admin-options">
+                                @if (User.IsInRole("Admin"))
+                                {@Html.ActionLink("Edit", "Edit", new { id = post.Id }) <span> | </span>
+                                @Html.ActionLink("Delete", "Delete", new { id = post.Id })}
+                            </div>
                         </div>
                     </article>
                 }
@@ -106,16 +117,20 @@
                             {
                                 <article class="widget-post">
                                     <div class="post-image">
-                                        <img src="@Html.Raw(post.MediaURL)" alt="">
+                                        @if (post.MediaURL != null)
+                                        {
+                                            <img class="img-responsive" img src="@Url.Content(post.MediaURL)" alt="">
+                                        }
                                     </div>
                                     <div class="post-body">
-                                        <h2><a href="@Url.Action(@post.Slug,"Blog")">@post.Title</a></h2>
+                                        <h2><a href="@Url.Action("Details", "BlogPosts", new { @post.Slug })">@post.Title</a></h2>
                                         <div class="post-meta">
-                                            <span><i class="fa fa-clock-o"></i>@Html.Raw(post.Created.DateTime.ToLongDateString())</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+                                            <span><i class="fa fa-clock-o"></i>@post.Created.DateTime.ToLongDateString()</span>                
+                                            <span><a href="@Url.Action("Details", "BlogPosts", new { @post.Slug })/#comment-zone"><i class="fa fa-comment-o"></i>@post.Comments.Count</a></span>
                                         </div>
                                     </div>
                                 </article>
-                            }
+                              }
                         </div>
                     </div>
                     <!-- sidebar-widget -->
@@ -143,6 +158,15 @@
                                 <li><a href="#">Food</a></li>
                                 <li><a href="#">Uncategorized</a></li>
                             </ul>
+                            @*<div class="button-group filter-button-group">
+                                    <button data-filter="*">Emerging Tech</button>
+                                    <button data-filter=".metal">Travel</button>
+                                    <button data-filter=".transition">Coding</button>
+                                    <button data-filter=".alkali, .alkaline-earth">The Outdoors</button>
+                                    <button data-filter=":not(.transition)">Education</button>
+                                    <button data-filter=".metal:not(.transition)">Food</button>
+                                    <button data-filter=".metal:not(.transition)">Uncategorized</button>
+                                </div>*@
                         </div>
                     </div>
                     <!-- Blog Search Well -->

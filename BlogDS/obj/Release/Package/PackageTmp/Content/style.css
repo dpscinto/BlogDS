@@ -1032,3 +1032,7 @@ footer .footer-bottom {
     word-break: break-all;
     word-wrap: break-word;
 }
+.grid-item { 
+    width: 100%; 
+
+}
