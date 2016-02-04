@@ -125,12 +125,12 @@
                                     <div class="post-body">
                                         <h2><a href="@Url.Action("Details", "BlogPosts", new { @post.Slug })">@post.Title</a></h2>
                                         <div class="post-meta">
-                                            <span><i class="fa fa-clock-o"></i>@post.Created.DateTime.ToLongDateString()</span>                
+                                            <span><i class="fa fa-clock-o"></i>@post.Created.DateTime.ToLongDateString()</span>
                                             <span><a href="@Url.Action("Details", "BlogPosts", new { @post.Slug })/#comment-zone"><i class="fa fa-comment-o"></i>@post.Comments.Count</a></span>
                                         </div>
                                     </div>
                                 </article>
-                              }
+                            }
                         </div>
                     </div>
                     <!-- sidebar-widget -->
@@ -172,14 +172,16 @@
                     <!-- Blog Search Well -->
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Search</h3>
-                        <div class="widget-container">
-                            <input type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
-                        </div>
+                        <form action="@Url.Action("Index", "BlogPosts")">
+                            <div class="widget-container">
+                                <input type="text" class="form-control" name="query" value="@ViewBag.Query">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
                         <!-- /.input-group -->
                     </div>
                 </aside>

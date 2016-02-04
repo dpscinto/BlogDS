@@ -104,3 +104,5 @@ C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\Page
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.Mvc.dll
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.xml
 C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\bin\PagedList.Mvc.xml
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\obj\Release\BlogDS.Migrations.Init.resources
+C:\Users\Dan Scinto\Documents\Visual Studio 2015\Projects\BlogDS\BlogDS\obj\Release\BlogDS.csproj.GenerateResource.Cache

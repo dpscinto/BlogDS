@@ -23,9 +23,24 @@ namespace BlogDS.Controllers
 
         
         // GET: BlogPosts
-        public ActionResult Index(int? page)
-        {
-            return View(db.Posts.OrderByDescending(p => p.Created).ToPagedList(1, 5));
+        public ActionResult Index(int? page, string query)
+        { 
+            ViewBag.Query = query;
+            //var qposts = db.Posts.AsQueryable();
+            var qposts = from p in db.Posts
+                           select p;
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                qposts = qposts.Where(p => p.Title.Contains(query)
+                    //|| p.Created.Contains(query)
+                    //|| p.Updated.Contains(query)
+                    || p.Body.Contains(query)
+                    || p.MediaURL.Contains(query)
+                    || p.Categories.Contains(query));
+            }
+
+            var posts = qposts.OrderByDescending(p => p.Created).ToPagedList(page ?? 1, 5);
+            return View(posts);
         }
 
 
