@@ -23,23 +23,25 @@ namespace BlogDS.Controllers
 
         
         // GET: BlogPosts
-        public ActionResult Index(int? page, string query)
+        public ActionResult Index(int? page, string query, string category)
         { 
             ViewBag.Query = query;
-            //var qposts = db.Posts.AsQueryable();
             var qposts = from p in db.Posts
                            select p;
             if (!string.IsNullOrWhiteSpace(query))
             {
                 qposts = qposts.Where(p => p.Title.Contains(query)
-                    //|| p.Created.Contains(query)
-                    //|| p.Updated.Contains(query)
                     || p.Body.Contains(query)
                     || p.MediaURL.Contains(query)
-                    || p.Categories.Contains(query));
+                    || p.Category.Contains(query));
             }
 
-            var posts = qposts.OrderByDescending(p => p.Created).ToPagedList(page ?? 1, 5);
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                qposts = qposts.Where(p => p.Category.Contains(category));
+            }
+
+            var posts = qposts.OrderByDescending(p => p.Created).ToPagedList(page ?? 1, 3);
             return View(posts);
         }
 
@@ -80,7 +82,7 @@ namespace BlogDS.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body,MediaURL")] BlogPost blogPost, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "Id,Title,Body,Category,MediaURL")] BlogPost blogPost, HttpPostedFileBase image)
         {
             blogPost.Created = new DateTimeOffset(DateTime.Now);
             if (ModelState.IsValid)
@@ -157,7 +159,7 @@ namespace BlogDS.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Body,MediaURL")] BlogPost blogPost)
+        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Body,Category,MediaURL")] BlogPost blogPost)
         {
             if (ModelState.IsValid)
             {
@@ -166,6 +168,7 @@ namespace BlogDS.Controllers
 
                 db.Entry(blogPost).Property("Body").IsModified = true;
                 db.Entry(blogPost).Property("Updated").IsModified = true;
+                db.Entry(blogPost).Property("Category").IsModified = true;
                 db.Entry(blogPost).Property("MediaURL").IsModified = true;
 
                 db.SaveChanges();

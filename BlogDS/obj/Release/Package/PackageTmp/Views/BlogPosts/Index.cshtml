@@ -51,10 +51,9 @@
         <div class="row">
             <br />
             <div class="col-md-8">
-                <p>
                     @if (User.IsInRole("Admin"))
-                    {@Html.ActionLink("Create New Post", "Create")}
-                </p>
+                    {@Html.ActionLink("Admin", "Admin") <span>|</span>
+                     @Html.ActionLink("Create New Post", "Create")}
 
                 @foreach (var post in Model)
                 {
@@ -66,7 +65,7 @@
                             }
                         </div>
                         <div class="blog-post-body">
-                            <h2><a href="@Url.Action(@post.Slug,"Blog")">@post.Title</a></h2>
+                            <h2><a href="@Url.Action("Details","BlogPosts", new { @post.Slug })">@post.Title</a></h2>
                             <div class="post-meta">
                                 <span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/
                                 <span><i class="fa fa-clock-o"></i>@post.Created.DateTime.ToLongDateString()</span>/
@@ -149,43 +148,35 @@
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Categories</h3>
                         <div class="widget-container">
-                            <ul>
-                                <li><a href="#">Emerging Tech</a></li>
-                                <li><a href="#">Travel</a></li>
-                                <li><a href="#">Coding</a></li>
-                                <li><a href="#">The Outdoors</a></li>
-                                <li><a href="#">Education</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Uncategorized</a></li>
-                            </ul>
-                            @*<div class="button-group filter-button-group">
-                                    <button data-filter="*">Emerging Tech</button>
-                                    <button data-filter=".metal">Travel</button>
-                                    <button data-filter=".transition">Coding</button>
-                                    <button data-filter=".alkali, .alkaline-earth">The Outdoors</button>
-                                    <button data-filter=":not(.transition)">Education</button>
-                                    <button data-filter=".metal:not(.transition)">Food</button>
-                                    <button data-filter=".metal:not(.transition)">Uncategorized</button>
-                                </div>*@
+                                <ul>
+                                    <li>@Html.ActionLink("Technology", "Index", "BlogPosts", new { category = "Technology" }, null)</li>
+                                    <li>@Html.ActionLink("Travel", "Index", "BlogPosts", new { category = "Travel" }, null)</li>
+                                    <li>@Html.ActionLink("Coding", "Index", "BlogPosts", new { category = "Coding" }, null)</li>
+                                    <li>@Html.ActionLink("The Outdoors", "Index", "BlogPosts", new { category = "The Outdoors" }, null)</li>
+                                    <li>@Html.ActionLink("Education", "Index", "BlogPosts", new { category = "Education" }, null)</li>
+                                    <li>@Html.ActionLink("Food", "Index", "BlogPosts", new { category = "Food" }, null)</li>
+                                    <li>@Html.ActionLink("Uncategorized", "Index", "BlogPosts", new { category = "Uncategorized" }, null)</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+
                     <!-- Blog Search Well -->
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Search</h3>
-                        <form action="@Url.Action("Index", "BlogPosts")">
-                            <div class="widget-container">
-                                <input type="text" class="form-control" name="query" value="@ViewBag.Query">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
+                        <div class="widget-container">
+                            <form action="@Url.Action("Index", "BlogPosts")">
+                                <input type="text" class="form-control search" name="query" value="@ViewBag.Query">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default search" type="submit">
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button>
-                                </span>
-                            </div>
-                        </form>
+                                </div>
+                            </form>
+                        </div>
                         <!-- /.input-group -->
                     </div>
                 </aside>
             </div>
-        </div>
+            </div>
     </section>
 </div><!-- /.container -->

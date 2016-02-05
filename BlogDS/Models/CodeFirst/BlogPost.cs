@@ -26,7 +26,7 @@ namespace BlogDS.Models
         public string MediaURL { get; set; }
         public string Slug { get; set; }
         public string Author { get; set; }
-        public string Categories { get; set;}
+        public string Category { get; set;}
         public string Tags { get; set; }
         public bool Published { get; set; }
 

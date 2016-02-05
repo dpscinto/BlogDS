@@ -2566,8 +2566,8 @@ output {
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-.form-control2{
-  width: 80%;
+.search{
+  width: 100%;
 }
 .form-control:focus {
   border-color: #66afe9;

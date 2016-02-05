@@ -35,20 +35,21 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Category, new SelectList(new string[] { "Technology", "Travel", "Coding", "The Outdoors", "Education", "Food", "Uncategorized" }), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.MediaURL, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <input name="image" type="file" class="form-control" id="fileUpload" />
                         @Html.ValidationMessageFor(model => model.MediaURL, "", new { @class = "text-danger" })
                     </div>
-                </div>
 
-                <!--<div class="form-group">
-                    @Html.LabelFor(model => model.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Categories, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
-                    </div>
-                </div>-->
+                </div>
                 <!--<div class="form-group">
                     @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
