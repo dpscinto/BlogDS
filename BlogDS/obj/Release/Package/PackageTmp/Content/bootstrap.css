@@ -2567,7 +2567,7 @@ output {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .search{
-  width: 100%;
+  width: auto;
 }
 .form-control:focus {
   border-color: #66afe9;

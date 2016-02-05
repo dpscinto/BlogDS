@@ -23,9 +23,8 @@ namespace BlogDS.Controllers
 
         
         // GET: BlogPosts
-        public ActionResult Index(int? page, string query, string category)
-        { 
-            ViewBag.Query = query;
+        public ActionResult Index(int? page, string filter, string query, string category)
+        {            
             var qposts = from p in db.Posts
                            select p;
             if (!string.IsNullOrWhiteSpace(query))
@@ -40,6 +39,16 @@ namespace BlogDS.Controllers
             {
                 qposts = qposts.Where(p => p.Category.Contains(category));
             }
+
+            if(query!=null)
+            {
+                page=1;
+            }
+            else
+            {
+                query = filter;
+            }
+            ViewBag.Query = query;
 
             var posts = qposts.OrderByDescending(p => p.Created).ToPagedList(page ?? 1, 3);
             return View(posts);

@@ -89,7 +89,7 @@
                 }
                 <div class="pager">
                     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.Minimal)
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, filter = ViewBag.Query }), PagedListRenderOptions.Minimal)
                 </div>
             </div>
             <div class="col-md-4 sidebar-gutter">
@@ -164,14 +164,18 @@
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Search</h3>
                         <div class="widget-container">
-                            <form action="@Url.Action("Index", "BlogPosts")">
-                                <input type="text" class="form-control search" name="query" value="@ViewBag.Query">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default search" type="submit">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </div>
-                            </form>
+                                <form action="@Url.Action("Index", "BlogPosts")">
+                                   <div class="row">
+                                       <div class="col-md-9">
+                                           <input type="text" class="form-control" name="query" value="@ViewBag.Query">
+                                       </div>
+                                       <div class="col-md-3">
+                                           <button class="btn btn-default" type="submit">
+                                               <span class="glyphicon glyphicon-search"></span>
+                                           </button>
+                                       </div>
+                                    </div>
+                                </form>
                         </div>
                         <!-- /.input-group -->
                     </div>
