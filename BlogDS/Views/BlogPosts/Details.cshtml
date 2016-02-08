@@ -50,12 +50,13 @@
                         <div class="post-meta">
                             <span>by <a href="dscinto.azurewebsites.net">Dan Scinto</a></span>/
                             <span><i class="fa fa-clock-o"></i>@Model.Created.DateTime.ToLongDateString()</span>/
-                            <span><i class="fa fa-comment-o"></i> <a href="#comment-zone">@Model.Comments.Count</a></span>
+                            <span><i class="fa fa-comment-o"></i> <a href="@Url.Action("Details","BlogPosts", new { @Model.Slug })/#comment-zone">@Model.Comments.Count</a></span>
                             @if (Model.Updated != null)
                             {
-                                <span>/  Updated on: @Model.Updated.Value.DateTime.ToLongDateString()</span>
+                                <div><span>Updated on: @Model.Updated.Value.DateTime.ToLongDateString()</span></div>
                             }
                         </div>
+
                         <p>@Html.Raw(Model.Body)</p>
                     </div>
                 </article>
